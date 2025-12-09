@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Автобиография — Имя Фамилия</title>
+
+    <style>
+        /* Базовые стили */
+        * {
+            box-sizing: border-box;
+            margin: 0;	
+            padding: 0;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            color: #f5f5f5;
+            background: linear-gradient(135deg, #0f172a, #1e293b, #0b1120);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        section {
+            max-width: 900px;
+            margin: 0 auto 40px auto;
+            padding: 0 16px;
+        }
+
+        .hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 16px;
+        }
+
+        .hero-content {
+            text-align: center;
+            padding: 24px 32px;
+            border-radius: 18px;
+            border: 1px solid rgba(148, 163, 184, 0.4);
+            background: radial-gradient(circle at top, rgba(148, 163, 184, 0.22), transparent 55%);
+            box-shadow: 0 18px 40px rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(8px);
+        }
+
+        .profile-photo {
+            width: 325px;
+            height: 325px;
+            border-radius: 75%;
+            object-fit: cover;
+            margin-bottom: 18px;
+            border: 3px solid rgba(248, 250, 252, 0.85);
+            box-shadow: 0 8px 30px rgba(15, 23, 42, 0.8);
+        }
+
+        h1 {
+            font-size: clamp(28px, 4vw, 34px);
+            margin-bottom: 10px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            margin-bottom: 18px;
+            text-align: left;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 60px;
+            height: 2px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, #38bdf8, #a855f7);
+        }
+
+        p {
+            line-height: 1.6;
+            margin-top: 16px;
+            padding: 14px 16px;
+            border-radius: 12px;
+            border: 1px solid rgba(148, 163, 184, 0.45);
+            background: rgba(15, 23, 42, 0.65);
+            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.7);
+        }
+
+        .skills,
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 16px;
+            margin-top: 18px;
+        }
+
+        .skill,
+        .project {
+            padding: 14px 16px;
+            border-radius: 14px;
+            border: 1px solid rgba(148, 163, 184, 0.6);
+            background: rgba(15, 23, 42, 0.8);
+            box-shadow: 0 12px 26px rgba(15, 23, 42, 0.85);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+            font-size: 14px;
+        }
+
+        .skill strong,
+        .project strong {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 15px;
+        }
+
+        .skill:hover,
+        .project:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 34px rgba(15, 23, 42, 0.95);
+            border-color: #38bdf8;
+        }
+
+        .contacts {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: flex-start;
+        }
+
+        .contacts a {
+            text-decoration: none;
+            font-size: 14px;
+            padding: 8px 14px;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.7);
+            background: rgba(15, 23, 42, 0.9);
+            color: #e5e7eb;
+            transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .contacts a:hover {
+            background: linear-gradient(135deg, #38bdf8, #a855f7);
+            border-color: transparent;
+            transform: translateY(-2px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 16px 28px;
+            font-size: 13px;
+            color: #9ca3af;
+            border-top: 1px solid rgba(148, 163, 184, 0.4);
+            margin-top: 30px;
+            background: radial-gradient(circle at top, rgba(15, 23, 42, 0.9), transparent 60%);
+        }
+
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 0.9s ease forwards;
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(10px);
+            animation: fadeUp 0.9s ease forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.25s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.45s;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero-content { padding: 20px 18px; }
+            .profile-photo { width: 120px; height: 120px; }
+            .section-title { text-align: left; }
+            p { font-size: 14px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Главный экран -->
+    <header class="hero">
+        <div class="hero-content">
+            <img src="https://mail.google.com/mail/u/0?ui=2&ik=09b10646df&attid=0.1&permmsgid=msg-a:r-3206553615539416639&th=19b01f8a70ce10a8&view=fimg&fur=ip&permmsgid=msg-a:r-3206553615539416639&sz=s0-l75-ft&attbid=ANGjdJ9WMd4MkZmvwTzoQ7XK7_CkVXbJXGB8ILrLVQUq2tBPRqIX8NxR6yNOzJYSHZJy9sXZZT7hMa4J7yTbsVcsyYQwKdXo0ggCQ8S_bJPyOSa1KVeyibySFJAHn0s&disp=emb&realattid=ii_19b01f88ae43a32be3a1&zw" alt="Фото" class="profile-photo">
+            <h1 class="fade-in">Нурмагамбетов Искандер</h1>
+            <p class="fade-in delay-1">Дал дал ушел</p>
+        </div>
+    </header>
+
+    <!-- О себе -->
+<section id="about" style="text-align: center;">
+    <h2 class="section-title">О себе</h2>
+    <p style="text-align: center;">
+        Прямой, рациональный, прогматичный и любознательный <br>
+        (на основе всех моих сообщений chat gpt)
+    </p>
+</section>
+
+
+    <!-- Навыки -->
+    <section id="skills">
+        <h2 class="section-title">Хобби</h2>
+
+        <div class="skills">
+            <div class="skill fade-up">
+                <strong>Хобби 1</strong><br>
+                Спорт.
+            </div>
+            <div class="skill fade-up delay-1">
+                <strong>Хобби 2</strong><br>
+                Краткое описание.
+            </div>
+            <div class="skill fade-up delay-2">
+                <strong>Хобби 3</strong><br>
+                Краткое описание.
+            </div>
+        </div>
+    </section>
+
+    <!-- Проекты -->
+    <section id="projects">
+        <h2 class="section-title">Опыт и проекты</h2>
+
+        <div class="projects">
+            <div class="project fade-up">
+                <strong>Проект 1</strong><br>
+                Краткое описание вашего участия.
+            </div>
+            <div class="project fade-up delay-1">
+                <strong>Проект 2</strong><br>
+                Описание ключевых моментов.
+            </div>
+            <div class="project fade-up delay-2">
+                <strong>Проект 3</strong><br>
+                Описание важного опыта.
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакты -->
+    <section id="contacts">
+        <h2 class="section-title">Контакты</h2>
+
+        <p class="contacts">
+            <a href="#">Email</a>
+            <a href="#">Telegram</a>
+            <a href="#">LinkedIn</a>
+        </p>
+    </section>
+
+    <footer>
+        © 2025 Имя Фамилия
+    </footer>
+
+</body>
+</html>
