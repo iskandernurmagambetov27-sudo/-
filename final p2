@@ -49,7 +49,6 @@
             background: linear-gradient(90deg, #38bdf8, #a855f7);
         }
 
-        /* === ТЕКСТОВЫЕ БЛОКИ СО СВЕЧЕНИЕМ === */
         p {
             margin: 16px auto;
             max-width: 700px;
